@@ -35,8 +35,8 @@ class SMS extends Controller
                 $mobile = $row[0];
                 $amount = $row[1];
 
-                $username = 'sandbox'; // use 'sandbox' for development in the test environment
-                $apiKey   = '20846462cadda607f9cae98fee200f3543f1b2022d8c3e6acbaa4fd8fea875fb'; // use your sandbox app API key for development in the test environment
+                $username = 'aku-pay'; // use 'sandbox' for development in the test environment
+                $apiKey   = 'd3b3c4c4ad03cee17adcc50cecd84d3397cc176e79261971c44da6892c1c12e6'; // use your sandbox app API key for development in the test environment
                 $AT       = new AfricasTalking($username, $apiKey);
 
                 // Get one of the services
@@ -45,7 +45,7 @@ class SMS extends Controller
                 // Use the service
                 $result   = $sms->send([
                     'to'      => "".$mobile."",
-                    'message' => "Hello ".$mobile." you have received ".$amount." to your account"
+                    'message' => "Congratulations! You have been pre-approved for a TraderMoni micro-loan. Funds have been disbursed to your akupay wallet. To access your wallet visit: https://akupay.ng/ OR dial 347*215# OR SMS 'Pay, GTB, 0046732833' to 34461 with the name of your Bank and your account number."
                 ]);
 
                 array_push($data_array, $result);
@@ -56,3 +56,4 @@ class SMS extends Controller
             return $data_array;
     }
 }
+
